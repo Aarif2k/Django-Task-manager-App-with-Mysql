@@ -1,0 +1,17 @@
+{% extends 'layouts.html' %}
+
+{% block content %}
+<h1>Task List</h1>
+
+{% include 'task_filter.html' %}
+
+{% for task in tasks %}
+    <div class="task">
+        <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a> - {{ task.status }}
+        <a href="{% url 'task_edit' task.id %}">Edit</a>
+        <a href="{% url 'task_delete' task.id %}">Delete</a>
+    </div>
+{% endfor %}
+<a href="{% url 'task_create' %}" class="button">Add New Task</a>
+{% endblock %}
+

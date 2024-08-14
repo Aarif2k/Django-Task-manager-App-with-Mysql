@@ -1,0 +1,23 @@
+<!-- Filter options -->
+<div class="filter-container">
+    <h2>Filter by Priority</h2>
+    <div class="filter-buttons">
+        <form method="get" action="{% url 'task_filter' 'High' %}">
+            <button type="submit">High</button>
+        </form>
+        <form method="get" action="{% url 'task_filter' 'Medium' %}">
+            <button type="submit">Medium</button>
+        </form>
+        <form method="get" action="{% url 'task_filter' 'Low' %}">
+            <button type="submit">Low</button>
+        </form>
+        <form method="get" action="{% url 'task_list' %}">
+            <button type="submit">View All Tasks</button>
+        </form>
+    </div>
+</div>
+
+<!-- Display filtered message if applicable -->
+{% if filtered %}
+    <h2>Filtered tasks by priority: {{ priority }}</h2>
+{% endif %}
